@@ -1,0 +1,17 @@
+{
+  "repo": "ion-trace-metric-probe",
+  "thresholds": {
+    "signal": 4,
+    "slack": 2,
+    "confidence": 1,
+    "drag": 5,
+    "ship": 183,
+    "watch": 121
+  },
+  "terms": [
+    "span volume",
+    "latency skew",
+    "signal loss",
+    "incident shape"
+  ]
+}
