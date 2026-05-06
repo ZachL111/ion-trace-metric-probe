@@ -1,0 +1,73 @@
+{
+  "repo": "ion-trace-metric-probe",
+  "language": "Scala",
+  "category": "Observability",
+  "goal": "Package a Scala local lab for metric analysis with deny and allow fixtures, explainable decision traces, and documented operating limits.",
+  "review_model": {
+    "terms": [
+      "span volume",
+      "latency skew",
+      "signal loss",
+      "incident shape"
+    ],
+    "lanes": [
+      "ship",
+      "watch",
+      "hold"
+    ],
+    "score": "signal * 2 + slack + confidence - drag * 3",
+    "purpose": "surface the domain-specific cases that need the most careful review"
+  },
+  "cases": [
+    {
+      "name": "baseline",
+      "focus": "span volume",
+      "signal": 51,
+      "slack": 28,
+      "drag": 19,
+      "confidence": 68,
+      "score": 141,
+      "lane": "ship"
+    },
+    {
+      "name": "stress",
+      "focus": "latency skew",
+      "signal": 49,
+      "slack": 46,
+      "drag": 30,
+      "confidence": 50,
+      "score": 104,
+      "lane": "hold"
+    },
+    {
+      "name": "edge",
+      "focus": "signal loss",
+      "signal": 72,
+      "slack": 36,
+      "drag": 21,
+      "confidence": 58,
+      "score": 175,
+      "lane": "ship"
+    },
+    {
+      "name": "recovery",
+      "focus": "incident shape",
+      "signal": 72,
+      "slack": 53,
+      "drag": 31,
+      "confidence": 85,
+      "score": 189,
+      "lane": "ship"
+    },
+    {
+      "name": "stale",
+      "focus": "span volume",
+      "signal": 54,
+      "slack": 46,
+      "drag": 23,
+      "confidence": 92,
+      "score": 177,
+      "lane": "ship"
+    }
+  ]
+}
